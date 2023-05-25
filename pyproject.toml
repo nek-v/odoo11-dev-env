@@ -1,0 +1,46 @@
+[build-system]
+requires = [
+    "setuptools >= 46.4.0",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79
+target-version = ["py38"]
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | \venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | odoo
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[tools.flake8]
+ignore = ["E203", "E266", "E501", "W503", "F403", "F401"]
+max-complexity = 18
+select = ["B", "C", "E", "F", "W", "T4", "B9"]
+max-line-length = 79
+exclude = [".tox", ".git", "venv", ".venv", "migrations", "odoo"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = "True"
+force_grid_wrap = 0
+use_parentheses = "True"
+ensure_newline_before_comments = "True"
+line_length = 79
