@@ -13,6 +13,7 @@ services:
     - odoo-web-data:/var/lib/odoo
     - ./etc:/etc/odoo
     - ./addons:/mnt/extra-addons
+    - ./odoo:/mnt/odoo
     tty: true
     command: -- --dev all
   db:
